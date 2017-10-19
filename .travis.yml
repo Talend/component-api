@@ -10,7 +10,7 @@ notifications:
     on_pull_requests: true
     secure: mnZ1q9FaR/A2kTll1LCNCsQIJ0oasygkSfXeSkan0kWZFANyB8VTFG261PXRha7OeNfcj/w+cSoG30gcSQ8W16C0x1lWIv0Agxy+VW77WkHnwdEOGkZyeqzJAMfra3HMDkcCFk26vqBTmELSvIoBndDA6F4f34bRFT9DdbPaEys1EqY6CS1bH59+G5cUFYWyGDmBQhAOmY0E4nAKofmTCQ79/3R/OEke9jWvYIXPxgIej4AJn97vySQbiEcUaO6zhHwmPhA50+Dia4IB6AcU7l7X0xRx915Cc2YatqeOfbbwPPrW6EoTHL3aZZvnQVNPk1eF9bbUAAPhJcaOQupXIARbA6lGpncW2hhVtG7ti+uXRMQPrsQu2vgc1ceOmgm6RLtkKdScCIRqjEH8R0v8tyn4GSjuoWQngkRRBlMV+bXTZE/oIFdaNLBHIejwFdAxTIwsFcMAv+Ce6AjwnnKXZ1HI+wAB0A4Y54SNGDIC9bOyCLLNp9icd0HA8aLhttjnumWaPS/tg8U0SbtNRkN5kGfPI8f5xatDGAQLAsW2MW3xUP95PjxkqRYpOnkHcyNW4bhNufI3FMjHW+VKY9TWvFt0dj32SWr+DjQQt6Cr8xxK2ke9ck4dksjQyuHMahfoFGfSrMMJKAKan2Zm6t9NJQ874gOnarodFv2i5wfGgNM=
 before_install:
-- mkdir -p ~\/.gpg/ && openssl aes-256-cbc -K $encrypted_3e1475539c2f_key -iv $encrypted_3e1475539c2f_iv -in .travis/gpg/gpg.tar.enc -out ~\/.gpg/gpg.tar -d && tar xvf ~\/.gpg/gpg.tar -C ~\/.gpg/
+- mkdir -p ~\/.gpg/ && openssl aes-256-cbc -K $encrypted_3e1475539c2f_key -iv $encrypted_3e1475539c2f_iv -in .travis/gpg/gpg.tar.enc -out ~\/.gpg/gpg.tar -d && tar xvf ~\/.gpg/gpg.tar -C ~\/.gpg/ && ls -l /home/travis/.gpg/
 install: mvn clean install -DskipTests
 script: mvn clean install -e
 after_success:
