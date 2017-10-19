@@ -76,7 +76,7 @@
         <configuration>
           <localCheckout>true</localCheckout>
           <pushChanges>false</pushChanges>
-          <releaseProfiles>release</releaseProfiles>
+          <releaseProfiles>release,ossrh</releaseProfiles>
         </configuration>
       </plugin>
     </plugins>
