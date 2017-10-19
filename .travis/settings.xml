@@ -18,7 +18,7 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <additionalparam>-Xdoclint:none</additionalparam>
+        <javadoc.opts>-Xdoclint:none</javadoc.opts>
         <gpg.executable>gpg</gpg.executable>
         <gpg.defaultKeyring>false</gpg.defaultKeyring>
         <gpg.keyname>${env.GPG_KEYNAME}</gpg.keyname>
