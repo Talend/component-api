@@ -1,0 +1,15 @@
+= Component API
+
+This module contains all the API component developers can rely on.
+
+It must be used with `provided` scope.
+
+= Developer note
+
+IMPORTANT: Adding an API to this module must be followed by work in component-runtime
+repository to ensure its support in web and Studio environments for a UI API and
+standalone and big data (Apache Beam) environments for aruntime API.
+
+
+Most of the API is based on meta-annotations, for instance UI annotations
+are decorated with `@Ui` to be able to identify them and process them the same way.
