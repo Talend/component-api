@@ -1,5 +1,9 @@
 #! /bin/bash
 
+if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then
+    exit 0
+fi
+
 mkdir -p ~/.gpg/
 openssl aes-256-cbc -K $encrypted_3e1475539c2f_key -iv $encrypted_3e1475539c2f_iv -in .travis/gpg/gpg.tar.enc -out ~/.gpg/gpg.tar -d
 tar xvf ~/.gpg/gpg.tar -C ~/.gpg/
