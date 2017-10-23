@@ -22,12 +22,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import org.talend.component.api.meta.Documentation;
+import org.talend.component.api.meta.Partial;
 import org.talend.component.api.service.ActionType;
 
 /**
  * Mark a method as retruning the {@link Schema} of a dataset. The only configuration
  * parameter will be an {@link org.talend.component.api.configuration.Option} named "dataset".
  */
+@Partial("See Schema description.")
 @ActionType(value = "schema", expectedReturnedType = Schema.class)
 @Target(METHOD)
 @Retention(RUNTIME)

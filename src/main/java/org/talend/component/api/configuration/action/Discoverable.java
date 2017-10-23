@@ -23,8 +23,10 @@ import java.lang.annotation.Target;
 
 import org.talend.component.api.configuration.action.meta.ActionRef;
 import org.talend.component.api.meta.Documentation;
+import org.talend.component.api.meta.Partial;
 import org.talend.component.api.service.schema.DiscoverSchema;
 
+@Partial("See Schema description.")
 @ActionRef(DiscoverSchema.class)
 @Documentation("Mark the decorated as supporting schema discovery. Since the model can be different from the schema model, the binding "
         + "method allows to associate either the whole returned schema, keys or types depending if binding is ALL, KEYS or TYPES. The decorated option "
