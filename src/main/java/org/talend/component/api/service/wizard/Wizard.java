@@ -22,8 +22,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import org.talend.component.api.meta.Documentation;
+import org.talend.component.api.meta.Partial;
 import org.talend.component.api.service.ActionType;
 
+@Partial("not yet supported and very experimental")
 @ActionType("wizard")
 @Target(METHOD)
 @Retention(RUNTIME)
