@@ -26,6 +26,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <talend-icon.version>0.121.0</talend-icon.version>
   </properties>
 
   <dependencies>
@@ -124,6 +126,38 @@
           </excludes>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.gmavenplus</groupId>
+        <artifactId>gmavenplus-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <id>find-icons</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>execute</goal>
+            </goals>
+            <configuration>
+              <scripts>
+                <script>${project.basedir}/src/build/CreateIcons.groovy</script>
+              </scripts>
+            </configuration>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.6.0-alpha-1</version>
+            <scope>runtime</scope>
+          </dependency>
+          <dependency>
+            <groupId>org.talend.ui</groupId>
+            <artifactId>talend-icon</artifactId>
+            <version>${talend-icon.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
     </plugins>
   </build>
 
@@ -195,4 +229,17 @@
       <distribution>may be downloaded from the Maven repository</distribution>
     </license>
   </licenses>
+
+  <repositories>
+    <repository>
+      <id>TalendOpenSourceRelease</id>
+      <url>https://artifacts-zl.talend.com/nexus/content/repositories/TalendOpenSourceRelease/</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>TalendOpenSourceRelease</id>
+      <url>https://artifacts-zl.talend.com/nexus/content/repositories/TalendOpenSourceRelease/</url>
+    </pluginRepository>
+  </pluginRepositories>
 </project>
