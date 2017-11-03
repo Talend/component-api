@@ -242,4 +242,10 @@
       <url>https://artifacts-zl.talend.com/nexus/content/repositories/TalendOpenSourceRelease/</url>
     </pluginRepository>
   </pluginRepositories>
+
+  <scm>
+    <connection>scm:git:https://github.com/Talend/component-api.git</connection>
+    <developerConnection>scm:git:https://github.com/Talend/component-api.git</developerConnection>
+    <url>https://github.com/Talend/component-api</url>
+  </scm>
 </project>
