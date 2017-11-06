@@ -15,6 +15,7 @@
  */
 package org.talend.sdk.component.api.component;
 
+import static java.lang.annotation.ElementType.PACKAGE;
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
@@ -27,7 +28,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @Documentation("Associate an icon to a component, only supported on `@PartitionMapper`, `@Processor` and `@Emitter` classes.")
-@Target(TYPE)
+@Target({TYPE, PACKAGE})
 @Retention(RUNTIME)
 public @interface Icon {
 
