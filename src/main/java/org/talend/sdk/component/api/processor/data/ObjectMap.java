@@ -18,12 +18,13 @@ package org.talend.sdk.component.api.processor.data;
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+import java.io.Serializable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 import java.util.Collection;
 import java.util.Set;
 
-public interface ObjectMap {
+public interface ObjectMap extends Serializable {
 
     Object get(String location);
 
