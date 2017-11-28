@@ -27,7 +27,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <talend-icon.version>0.121.0</talend-icon.version>
+    <talend-icon.version>0.127.0</talend-icon.version>
   </properties>
 
   <dependencies>
