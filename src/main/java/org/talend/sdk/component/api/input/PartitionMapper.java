@@ -36,7 +36,7 @@ public @interface PartitionMapper {
     String name() default "";
 
     /**
-     * If the @Producer method of the underlying {@see Emitter} can return null before the data
+     * If the @Producer method of the underlying {@link Emitter} can return null before the data
      * are completely read - i.e. infinite flow case - then you should set true to prevent the
      * execution to complete when null is encountered.
      *
