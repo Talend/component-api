@@ -1,6 +1,9 @@
 language: java
 jdk:
 - oraclejdk8
+env:
+  global:
+    - MAVEN_OPTS="-DTLND_BLACKDUCK_PASS=${TLND_BLACKDUCK_PASS:-skip} -DTLND_BLACKDUCK_USER=${TLND_BLACKDUCK_USER:-skip}"
 cache:
   directories:
   - "$HOME/.m2"
