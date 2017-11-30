@@ -71,6 +71,15 @@
         <artifactId>talend-tools-maven-plugin</artifactId>
         <version>1.0.0</version>
         <inherited>false</inherited>
+        <executions>
+          <execution>
+            <id>hub-detect</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>hub-detect</goal>
+            </goals>
+          </execution>
+        </executions>
         <configuration>
           <blackduckUrl>https://blackduck.talend.com</blackduckUrl>
           <blackduckName>Talend Component (TCOMP)</blackduckName>
