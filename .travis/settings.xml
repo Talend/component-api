@@ -9,6 +9,11 @@
       <username>${env.OSSRH_USER}</username>
       <password>${env.OSSRH_PASS}</password>
     </server>
+    <server>
+      <id>blackduck</id>
+      <username>${env.TLND_BLACKDUCK_USER}</username>
+      <password>${env.TLND_BLACKDUCK_PASS}</password>
+    </server>
   </servers>
 
   <profiles>
