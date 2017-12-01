@@ -1,9 +1,6 @@
 language: java
 jdk:
 - oraclejdk8
-env:
-  global:
-    - MAVEN_OPTS="-DTLND_BLACKDUCK_PASS=${TLND_BLACKDUCK_PASS:-skip} -DTLND_BLACKDUCK_USER=${TLND_BLACKDUCK_USER:-skip}"
 cache:
   directories:
   - "$HOME/.m2"
@@ -14,7 +11,7 @@ notifications:
     secure: mnZ1q9FaR/A2kTll1LCNCsQIJ0oasygkSfXeSkan0kWZFANyB8VTFG261PXRha7OeNfcj/w+cSoG30gcSQ8W16C0x1lWIv0Agxy+VW77WkHnwdEOGkZyeqzJAMfra3HMDkcCFk26vqBTmELSvIoBndDA6F4f34bRFT9DdbPaEys1EqY6CS1bH59+G5cUFYWyGDmBQhAOmY0E4nAKofmTCQ79/3R/OEke9jWvYIXPxgIej4AJn97vySQbiEcUaO6zhHwmPhA50+Dia4IB6AcU7l7X0xRx915Cc2YatqeOfbbwPPrW6EoTHL3aZZvnQVNPk1eF9bbUAAPhJcaOQupXIARbA6lGpncW2hhVtG7ti+uXRMQPrsQu2vgc1ceOmgm6RLtkKdScCIRqjEH8R0v8tyn4GSjuoWQngkRRBlMV+bXTZE/oIFdaNLBHIejwFdAxTIwsFcMAv+Ce6AjwnnKXZ1HI+wAB0A4Y54SNGDIC9bOyCLLNp9icd0HA8aLhttjnumWaPS/tg8U0SbtNRkN5kGfPI8f5xatDGAQLAsW2MW3xUP95PjxkqRYpOnkHcyNW4bhNufI3FMjHW+VKY9TWvFt0dj32SWr+DjQQt6Cr8xxK2ke9ck4dksjQyuHMahfoFGfSrMMJKAKan2Zm6t9NJQ874gOnarodFv2i5wfGgNM=
 before_install:
 - chmod +x ./.travis/setup_keys.sh && ./.travis/setup_keys.sh
-install: mvn clean install -DskipTests
-script: mvn clean install -e
+install: mvn clean install -Dhub-detect.skip=true -DskipTests
+script: mvn clean install -Dhub-detect.skip=true -e
 after_success:
 - "echo TRAVIS_PULL_REQUEST=$TRAVIS_PULL_REQUEST && echo TRAVIS_TAG=$TRAVIS_TAG && [[ ${TRAVIS_PULL_REQUEST} == 'false' ]] && [[ ${TRAVIS_TAG} == '' ]] && mvn clean deploy verify -DskipTests --settings .travis/settings.xml -Possrh -Prelease"
