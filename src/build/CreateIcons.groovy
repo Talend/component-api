@@ -1,7 +1,3 @@
-import java.util.jar.JarFile
-
-import static java.util.Locale.ENGLISH
-
 /**
  *  Copyright (C) 2006-2017 Talend Inc. - www.talend.com
  *
@@ -17,6 +13,9 @@ import static java.util.Locale.ENGLISH
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+import java.util.jar.JarFile
+
+import static java.util.Locale.ENGLISH
 
 def loader = Thread.currentThread().contextClassLoader
 def jarMarker = 'META-INF/maven/org.talend.ui/talend-icon/pom.properties'
