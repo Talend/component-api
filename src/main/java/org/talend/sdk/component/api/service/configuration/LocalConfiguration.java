@@ -15,6 +15,8 @@
  */
 package org.talend.sdk.component.api.service.configuration;
 
+import java.util.Set;
+
 /**
  * Provide an abstraction to read the local - environment - configuration.
  */
@@ -27,4 +29,9 @@ public interface LocalConfiguration {
      * @return the value corresponding to the key in the configuration repository for the calling component/family.
      */
     String get(String key);
+
+    /**
+     * @return all keys for the current family namespace.
+     */
+    Set<String> keys();
 }
