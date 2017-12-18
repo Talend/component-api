@@ -32,6 +32,7 @@ public interface LocalCache {
      * @param timeoutMs the cache duration.
      * @param supplier the value provider if the cache get does a miss.
      * @param <T> the type of data to access/cache.
+     * @return the cached or newly computed value.
      */
     <T> T computeIfAbsent(String key, long timeoutMs, Supplier<T> supplier);
 
@@ -41,6 +42,7 @@ public interface LocalCache {
      * @param key the cache key, must be unique accross the server.
      * @param supplier the value provider if the cache get does a miss.
      * @param <T> the type of data to access/cache.
+     * @return the cached or newly computed - and cached indefinitively - value.
      */
     default <T> T computeIfAbsent(String key, Supplier<T> supplier) {
         return computeIfAbsent(key, Integer.MAX_VALUE, supplier);
