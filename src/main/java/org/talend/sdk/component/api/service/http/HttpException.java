@@ -15,30 +15,19 @@
  */
 package org.talend.sdk.component.api.service.http;
 
-import java.util.List;
-import java.util.Map;
-
 /**
- * Represents a Http response and can be used as returned type of a {@link Request} method.
- *
- * @param <T> the type of the payload.
+ * HttpException that wrap an http {@link Response} with a status code and an error payload
  */
-public interface Response<T> {
+public class HttpException extends RuntimeException {
 
-    /**
-     * @return the http status of the response.
-     */
-    int status();
+    private Response response;
 
-    /**
-     * @return the response headers.
-     */
-    Map<String, List<String>> headers();
+    public HttpException(final Response response) {
+        super("code: " + response.status() + ", message: " + response.error(String.class));
+        this.response = response;
+    }
 
-    /**
-     * @return the payload.
-     */
-    T body();
-
-    <E> E error(Class<E> type);
+    public Response getResponse() {
+        return response;
+    }
 }
