@@ -39,4 +39,6 @@ public interface Response<T> {
      * @return the payload.
      */
     T body();
+
+    <E> E error(Class<E> type);
 }
