@@ -22,5 +22,28 @@ import java.net.HttpURLConnection;
  */
 public interface Configurer {
 
-    void configure(HttpURLConnection connection);
+    /**
+     * @param connection the current connection to customize.
+     * @param configuration the configuration of the invocation if any.
+     */
+    void configure(HttpURLConnection connection, ConfigurerConfiguration configuration);
+
+    /**
+     * Represents the potential {@link ConfigurerOption} parameters of the invocation.
+     */
+    interface ConfigurerConfiguration {
+
+        /**
+         * @return all options at once.
+         */
+        Object[] configuration();
+
+        /**
+         * @param name the option name.
+         * @param type the expected type of the option.
+         * @param <T> the type of the option.
+         * @return the option value or null if missing.
+         */
+        <T> T get(String name, Class<T> type);
+    }
 }
