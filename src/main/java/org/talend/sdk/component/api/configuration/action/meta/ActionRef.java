@@ -25,5 +25,14 @@ import java.lang.annotation.Target;
 @Retention(RUNTIME)
 public @interface ActionRef {
 
+    /**
+     * @return action annotation marker.
+     */
     Class<?> value();
+
+    /**
+     * @return the name of the method in the decorated annotation containing the reference to use
+     * to identify the related action.
+     */
+    String ref() default "value";
 }

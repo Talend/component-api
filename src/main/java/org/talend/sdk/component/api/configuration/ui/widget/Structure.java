@@ -22,10 +22,13 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+import org.talend.sdk.component.api.configuration.action.meta.ActionRef;
 import org.talend.sdk.component.api.configuration.ui.meta.Ui;
 import org.talend.sdk.component.api.meta.Documentation;
+import org.talend.sdk.component.api.service.schema.DiscoverSchema;
 
 @Ui
+@ActionRef(value = DiscoverSchema.class, ref = "discoverSchema")
 @Documentation("Mark a List<String> or Map<String, String> field as being represented as "
         + "the component data selector (field names generally or field names as key and type as value).")
 @Retention(RUNTIME)
