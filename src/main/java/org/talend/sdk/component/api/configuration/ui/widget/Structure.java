@@ -32,8 +32,19 @@ import org.talend.sdk.component.api.meta.Documentation;
 @Target({ PARAMETER, FIELD })
 public @interface Structure {
 
+    /**
+     * @return the name of the input/output.
+     */
     String value() default "__default__";
 
+    /**
+     * @return an optional discover schema reference.
+     */
+    String discoverSchema() default "";
+
+    /**
+     * @return type of connection the field modelises.
+     */
     Type type() default Type.IN;
 
     enum Type {

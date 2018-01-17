@@ -42,7 +42,7 @@ public @interface DiscoverSchema {
     String family() default "";
 
     /**
-     * @return the identifier usable by {@link org.talend.sdk.component.api.configuration.action.Discoverable}
+     * @return the identifier usable by {@link org.talend.sdk.component.api.configuration.ui.widget.Structure}
      * to reference this action.
      */
     String value() default "default";
