@@ -22,7 +22,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * Define the content type supported by @{@link Encoder} and {@link Decoder} implementation
+ * Define the content type supported by {@link Encoder} and {@link Decoder} implementation
  */
 @Target(TYPE)
 @Retention(RUNTIME)
