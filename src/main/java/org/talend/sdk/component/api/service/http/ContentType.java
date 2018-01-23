@@ -15,7 +15,6 @@
  */
 package org.talend.sdk.component.api.service.http;
 
-import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
@@ -23,19 +22,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * Defines which implementation payloads (input/output) are serialized with.
+ * Define the content type supported by @{@link Encoder} and {@link Decoder} implementation
  */
-@Target({ TYPE, METHOD })
+@Target(TYPE)
 @Retention(RUNTIME)
-public @interface Codec {
+public @interface ContentType {
 
-    /**
-     * @return the encoder to use to create the payload sent to the server.
-     */
-    Class<? extends Encoder>[] encoder() default {};
-
-    /**
-     * @return the decoder payload used to read the response.
-     */
-    Class<? extends Decoder>[] decoder() default {};
+    String value() default "*/*";
 }
