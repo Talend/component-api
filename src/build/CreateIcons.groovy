@@ -77,7 +77,7 @@ iconJava.eachLine {
 }
 
 // before rewriting the file ensure we didnt loose icons
-def missingIcons = oldIcons - icons
+def missingIcons = oldIcons - icons - [ /* to force an update with icon diff add them here */ ]
 if (!missingIcons.isEmpty()) {
     throw new IllegalArgumentException(
             "These icons were here and are no more supported, either add an exception in CreateIcons.groovy or add them back:\n> ${missingIcons}")
