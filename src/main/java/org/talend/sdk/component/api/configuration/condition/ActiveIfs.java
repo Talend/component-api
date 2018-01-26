@@ -25,8 +25,7 @@ import java.lang.annotation.Target;
 import org.talend.sdk.component.api.configuration.condition.meta.Condition;
 import org.talend.sdk.component.api.meta.Documentation;
 
-@Documentation("If the evaluation of the element at the location matches value then the element is considered active, "
-        + "otherwise it is deactivated.")
+@Documentation("Allows to set multiple visibility conditions on the same property.")
 @Target({ FIELD, PARAMETER })
 @Retention(RUNTIME)
 @Condition("ifs")
