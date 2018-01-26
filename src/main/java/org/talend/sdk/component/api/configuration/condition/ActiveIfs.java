@@ -19,22 +19,18 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-import java.lang.annotation.Repeatable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import org.talend.sdk.component.api.configuration.condition.meta.Condition;
 import org.talend.sdk.component.api.meta.Documentation;
 
-@Repeatable(ActiveIfs.class)
 @Documentation("If the evaluation of the element at the location matches value then the element is considered active, "
         + "otherwise it is deactivated.")
 @Target({ FIELD, PARAMETER })
 @Retention(RUNTIME)
-@Condition("if")
-public @interface ActiveIf {
+@Condition("ifs")
+public @interface ActiveIfs {
 
-    String target();
-
-    String[] value();
+    ActiveIf[] value();
 }
