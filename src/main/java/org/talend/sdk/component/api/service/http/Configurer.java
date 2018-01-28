@@ -15,8 +15,6 @@
  */
 package org.talend.sdk.component.api.service.http;
 
-import java.net.HttpURLConnection;
-
 /**
  * Callback to configure the connection more deeply. Typically used to configure timeouts.
  */
@@ -26,7 +24,38 @@ public interface Configurer {
      * @param connection the current connection to customize.
      * @param configuration the configuration of the invocation if any.
      */
-    void configure(HttpURLConnection connection, ConfigurerConfiguration configuration);
+    void configure(Connection connection, ConfigurerConfiguration configuration);
+
+    /**
+     * Represents actions doable on a connection.
+     */
+    interface Connection {
+
+        /**
+         * Adds a header to the request.
+         *
+         * @param name header name.
+         * @param value header value.
+         * @return current connection.
+         */
+        Connection withHeader(String name, String value);
+
+        /**
+         * Sets the read timeout of the connection.
+         *
+         * @param timeout timeout value in milliseconds.
+         * @return current connection.
+         */
+        Connection withReadTimeout(int timeout);
+
+        /**
+         * Sets the connection timeout of the connection.
+         *
+         * @param timeout timeout value in milliseconds.
+         * @return current connection.
+         */
+        Connection withConnectionTimeout(int timeout);
+    }
 
     /**
      * Represents the potential {@link ConfigurerOption} parameters of the invocation.
