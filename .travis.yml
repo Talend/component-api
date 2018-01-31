@@ -15,21 +15,12 @@ script: true
 
 jobs:
   include:
-    - stage: default_build
-      - STEP=Build
-      script:
-      - mvn clean install -Dhub-detect.skip=true -e
-
-    - stage: master_build
-      env:
-      - STEP=Verify
-      before_install:
-      - chmod +x ./.travis/setup_keys.sh && ./.travis/setup_keys.sh
-      script:
-      - mvn clean deploy verify --settings .travis/settings.xml -Possrh -Prelease
+    - stage: Build
+      script: mvn clean install -Dhub-detect.skip=true -e
+    - stage: Deploy
+      script: chmod +x ./.travis/setup_keys.sh && ./.travis/setup_keys.sh && mvn clean deploy verify --settings .travis/settings.xml -Possrh -Prelease
 
 stages:
-  - name: master_build
+  - Build
+  - name: Deploy
     if: branch = master AND type != pull_request
-  - name: default_build
-    if: branch != master
