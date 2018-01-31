@@ -18,7 +18,7 @@ jobs:
     - stage: Build
       script: mvn clean install -Dhub-detect.skip=true -e
     - stage: Deploy
-      script: chmod +x ./.travis/setup_keys.sh && ./.travis/setup_keys.sh && mvn clean deploy verify --settings .travis/settings.xml -Possrh -Prelease
+      script: chmod +x ./.travis/setup_keys.sh && ./.travis/setup_keys.sh && mvn -DskipTests clean deploy verify --settings .travis/settings.xml -Possrh -Prelease
 
 stages:
   - Build
