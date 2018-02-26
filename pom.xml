@@ -24,6 +24,7 @@
   <name>Component API</name>
   <packaging>bundle</packaging>
   <description>Talend Component Kit API</description>
+  <url>https://talend.github.io/component-runtime/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
