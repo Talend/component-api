@@ -33,7 +33,7 @@ import org.talend.sdk.component.api.service.ActionType;
 @ActionType(value = "schema", expectedReturnedType = Schema.class)
 @Target(METHOD)
 @Retention(RUNTIME)
-@Documentation("Mark an action as returning a discovered schema. Its parameter MUST be the type decorated with `@Discoverable`.")
+@Documentation("Mark an action as returning a discovered schema. Its parameter MUST be the type decorated with `@Structure`.")
 public @interface DiscoverSchema {
 
     /**
