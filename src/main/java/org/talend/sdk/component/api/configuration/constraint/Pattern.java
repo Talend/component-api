@@ -28,11 +28,11 @@ import org.talend.sdk.component.api.meta.Documentation;
 @Validation(expectedTypes = CharSequence.class, name = "pattern")
 @Target({ FIELD, PARAMETER })
 @Retention(RUNTIME)
-@Documentation("Validate the decorated string with a java pattern, you can use xregex library in javascript.")
+@Documentation("Validate the decorated string with a *javascript* pattern (even into the Studio).")
 public @interface Pattern {
 
     /**
-     * @return a java regex, can use xregex in javascript.
+     * @return a javascript regex the decorated option should respect to be considered valid.
      */
     String value();
 }
