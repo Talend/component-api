@@ -15,10 +15,26 @@
  */
 package org.talend.sdk.component.api.service.http;
 
+import org.talend.sdk.component.api.service.http.model.HttpRequest;
+
 /**
  * You can cast an injected client with this type to initialize the base.
  */
 public interface HttpClient {
 
+    /**
+     * set the base URI of the http request
+     *
+     * @param base the base URI of the http client
+     */
     void base(String base);
+
+    /**
+     * Execute an http request
+     *
+     * @param httpRequest http request definition
+     * @return a http client ready to be used.
+     */
+    @Request
+    Response<byte[]> execute(HttpRequest httpRequest);
 }
