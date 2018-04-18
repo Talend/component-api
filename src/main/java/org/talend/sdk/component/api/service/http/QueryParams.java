@@ -1,12 +1,12 @@
 /**
  * Copyright (C) 2006-2018 Talend Inc. - www.talend.com
- * <p>
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * <p>
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,15 +15,22 @@
  */
 package org.talend.sdk.component.api.service.http;
 
+import static java.lang.annotation.ElementType.PARAMETER;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
 /**
- * You can cast an injected client with this type to initialize the base.
+ * Mark the parameter as the http request query parameters
  */
-public interface HttpClient {
+@Target(PARAMETER)
+@Retention(RUNTIME)
+public @interface QueryParams {
 
     /**
-     * set the base URI of the http request
-     *
-     * @param base the base URI of the http client
+     * @return should the value be encoded.
      */
-    void base(String base);
+    boolean encode() default true;
+
 }
