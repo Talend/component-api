@@ -28,4 +28,9 @@ import java.lang.annotation.Target;
 @Retention(RUNTIME)
 public @interface QueryParams {
 
+    /**
+     * @return should the value be encoded.
+     */
+    boolean encode() default true;
+
 }
