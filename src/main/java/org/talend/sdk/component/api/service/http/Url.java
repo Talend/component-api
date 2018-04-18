@@ -23,6 +23,7 @@ import java.lang.annotation.Target;
 
 /**
  * Mark parameter as the URL of the http request
+ * If this annotation is used it override the @{@link Request#path()} and the {@link HttpClient#base(String)}
  */
 @Target(PARAMETER)
 @Retention(RUNTIME)

@@ -22,7 +22,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * Mark parameter as the http method. GRT, POST...
+ * Mark parameter as the http method. GET, POST...
+ * If this annotation is used it override @{@link Request#method()}
  */
 @Target(PARAMETER)
 @Retention(RUNTIME)
