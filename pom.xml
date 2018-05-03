@@ -26,7 +26,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <talend-icon.version>0.179.0</talend-icon.version>
+    <talend-icon.version>0.183.0</talend-icon.version>
   </properties>
 
   <dependencies>
@@ -253,6 +253,9 @@
             <goals>
               <goal>check</goal>
             </goals>
+            <configuration>
+              <skip>true</skip> <!-- just for 0.0.6 release, it has been checked before -->
+            </configuration>
           </execution>
         </executions>
       </plugin>
