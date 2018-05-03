@@ -253,9 +253,6 @@
             <goals>
               <goal>check</goal>
             </goals>
-            <configuration>
-              <skip>true</skip> <!-- just for 0.0.6 release, it has been checked before -->
-            </configuration>
           </execution>
         </executions>
       </plugin>
