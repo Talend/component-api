@@ -32,9 +32,13 @@ def icons = []
 def jar = new JarFile(iconJar)
 try {
     icons.addAll(Collections.list(jar.entries())
-            .findAll { it.name.startsWith('icons/') && it.name.endsWith('.svg') }
+            .findAll {
+                it.name.endsWith('.svg') &&
+                ((it.name.startsWith('icons/') && it.name.split('/').length == 2) ||
+                ((it.name.startsWith('icons/svg/') || it.name.startsWith('icons/svg-deprecated/')) && it.name.split('/').length == 3))
+            }
             .collect {
-        def icon = it.name.substring('icons/'.length(), it.name.length() - ('.svg'.length()))
+        def icon = it.name.substring(it.name.lastIndexOf('/') + 1, it.name.length() - ('.svg'.length()))
         "${icon.replace('-', '_').toUpperCase(ENGLISH)}(\"${icon}\")"
     })
 } finally {
