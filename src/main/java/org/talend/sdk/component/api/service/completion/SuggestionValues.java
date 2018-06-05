@@ -27,11 +27,10 @@ import lombok.NoArgsConstructor;
 public class SuggestionValues {
 
     /**
-     * Is the list complete and the client doesn't need to request it again
-     * or is it a partial list of items (interesting when the length of items is very huge).
-     * If you have not a lot of values ensure to set it to false.
+     * Does the client can cache the values after the first request or should
+     * call the action each time.
      */
-    private boolean partial;
+    private boolean cacheable;
 
     /**
      * List of pairs to show in the suggestions in the UI.
