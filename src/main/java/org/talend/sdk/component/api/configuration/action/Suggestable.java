@@ -25,16 +25,53 @@ import java.lang.annotation.Target;
 import org.talend.sdk.component.api.configuration.action.meta.ActionRef;
 import org.talend.sdk.component.api.meta.Documentation;
 import org.talend.sdk.component.api.service.completion.DynamicValues;
+import org.talend.sdk.component.api.service.completion.Suggestions;
 
-@ActionRef(DynamicValues.class)
-@Documentation("Mark the decorated field as supporting dynamic value filling (depending the server state and not known at component coding time). "
+@ActionRef(Suggestions.class)
+@Documentation("Mark the decorated field as supporting suggestions, i.e. dynamically get a list of valid values the user can use. "
         + "Note that if you are looking to provide proposals by form (depending the option(s) values), @Suggestable is a better fit.")
 @Target({ FIELD, PARAMETER })
 @Retention(RUNTIME)
-public @interface Proposable {
+public @interface Suggestable {
 
     /**
-     * @return value of @{@link DynamicValues} value method.
+     * @return value of @{@link Suggestions} value method.
      */
     String value();
+
+    /**
+     * This "list" will represent the parameter the caller will send to the suggestions implementation.
+     *
+     * Syntax is the following:
+     *
+     * <ul>
+     * <li>.: represents the decorated option (aka "this")</li>
+     * <li>../foo: represents the
+     *
+     * <pre>
+     * foo
+     * </pre>
+     *
+     * option of the parent (if exists) of "."</li>
+     * <li>bar: represents the
+     *
+     * <pre>
+     * bar
+     * </pre>
+     *
+     * sibling option of the decorated field</li>
+     * <li>bar/dummy: represents the
+     *
+     * <pre>
+     * dummy
+     * </pre>
+     *
+     * option of the child bar of the decorated field</li>
+     * </ul>
+     *
+     * This syntax is close to path syntax but the important point is all the parameters are related to the decorated option.
+     *
+     * @return parameters for the validation.
+     */
+    String[] parameters() default { "." };
 }
