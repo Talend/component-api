@@ -21,7 +21,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import org.talend.sdk.component.api.configuration.action.Proposable;
 import org.talend.sdk.component.api.meta.Documentation;
 import org.talend.sdk.component.api.service.ActionType;
 
