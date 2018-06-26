@@ -26,7 +26,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <talend-icon.version>0.192.0</talend-icon.version>
+    <talend-icon.version>0.197.0</talend-icon.version>
   </properties>
 
   <dependencies>
@@ -175,8 +175,8 @@
           <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
-            <version>3.0.0-alpha-1</version>
-            <scope>runtime</scope>
+            <version>3.0.0-alpha-3</version>
+            <type>pom</type>
           </dependency>
           <dependency>
             <groupId>org.talend.ui</groupId>
