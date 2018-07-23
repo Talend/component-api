@@ -34,6 +34,11 @@ public @interface Components {
     String family();
 
     /**
+     * The categories of the nested components (in the package).
+     * You can use <code>${family}</code> to represent the family in the category.
+     * If not present it will be appended at the end, for example <code>Misc</code>
+     * will become <code>Misc/${family}</code>.
+     *
      * @return the categories to associate to this component. Default to "Misc".
      */
     String[] categories() default { "Misc" };
