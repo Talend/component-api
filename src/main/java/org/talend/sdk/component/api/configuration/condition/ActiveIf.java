@@ -22,6 +22,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Repeatable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
+import java.util.function.Predicate;
 
 import org.talend.sdk.component.api.configuration.condition.meta.Condition;
 import org.talend.sdk.component.api.meta.Documentation;
@@ -34,7 +35,39 @@ import org.talend.sdk.component.api.meta.Documentation;
 @Condition("if")
 public @interface ActiveIf {
 
+    /**
+     * @return the path to evaluate.
+     */
     String target();
 
+    /**
+     * @return the value to compare with the evaluated path.
+     */
     String[] value();
+
+    /**
+     * Should the condition deduced from the target comparison to the value(s) be compared to true or false.
+     * It is equivalent to see target and value defining a {@link java.util.function.Predicate} and this toggle
+     * calling {@link Predicate#negate()}.
+     *
+     * @return if set to true it will be compared to false (reversed), otherwise it is compared to true.
+     */
+    boolean negate() default false;
+
+    /**
+     * @return the strategy to use to evaluate the value compared to value array.
+     */
+    EvaluationStrategy evaluationStrategy() default EvaluationStrategy.DEFAULT;
+
+    enum EvaluationStrategy {
+        /**
+         * Use the raw value.
+         */
+        DEFAULT,
+
+        /**
+         * For an array or string, evaluate the size of the value instead of the value itself.
+         */
+        LENGTH
+    }
 }
