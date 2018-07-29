@@ -69,6 +69,7 @@ public interface ObjectFactory {
          * @param stream a stream of properties.
          * @param keyExtractor how to extract the key from the incoming stream.
          * @param valueExtractor how to extract the value from the incoming stream.
+         * @param <T> the type of the created object.
          * @return this.
          */
         default <T> ObjectFactoryInstance withProperties(final Stream<T> stream, final Function<T, String> keyExtractor,
