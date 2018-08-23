@@ -31,5 +31,18 @@ import org.talend.sdk.component.api.meta.Documentation;
 @Condition("ifs")
 public @interface ActiveIfs {
 
+    /**
+     * @return how to combine the evaluated conditions.
+     */
+    Operator operator() default Operator.AND;
+
+    /**
+     * @return the list of conditions to evaluate with operator.
+     */
     ActiveIf[] value();
+
+    enum Operator {
+        AND,
+        OR
+    }
 }
