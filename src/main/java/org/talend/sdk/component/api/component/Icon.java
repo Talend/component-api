@@ -166,6 +166,7 @@ public @interface Icon {
         LAUNCHER("launcher"),
         LICENSE("license"),
         LINK("link"),
+        LOCAL_STORAGE("local-storage"),
         LOCK("lock"),
         LOCKED("locked"),
         LOGO("logo"),
