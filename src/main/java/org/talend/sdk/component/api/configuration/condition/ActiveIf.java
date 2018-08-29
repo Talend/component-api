@@ -68,6 +68,11 @@ public @interface ActiveIf {
         /**
          * For an array or string, evaluate the size of the value instead of the value itself.
          */
-        LENGTH
+        LENGTH,
+
+        /**
+         * Check if a string or list of string contains a value.
+         */
+        CONTAINS
     }
 }
