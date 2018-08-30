@@ -59,6 +59,35 @@ public @interface ActiveIf {
      */
     EvaluationStrategy evaluationStrategy() default EvaluationStrategy.DEFAULT;
 
+    EvaluationStrategyOption[] evaluationStrategyOptions() default {};
+
+    /**
+     * Allows to pass custom options to the evaluation strategy.
+     * The supported ones are:
+     * <ul>
+     * <li>
+     * For <code>CONTAINS</code> strategy:
+     * <ul>
+     * <li>lowercase: [true|false]</li>
+     * </ul>
+     * </li>
+     * </ul>
+     */
+    @Target({})
+    @Retention(RUNTIME)
+    @interface EvaluationStrategyOption {
+
+        /**
+         * @return option name;
+         */
+        String name();
+
+        /**
+         * @return option value.
+         */
+        String value() default "true";
+    }
+
     enum EvaluationStrategy {
         /**
          * Use the raw value.
