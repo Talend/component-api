@@ -22,6 +22,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+import org.talend.sdk.component.api.meta.Documentation;
+
+@Documentation("Extension point for custom UI integrations and custom actions.")
 @ActionType("user")
 @Target({ METHOD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
