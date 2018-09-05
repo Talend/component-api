@@ -256,6 +256,7 @@
             <configuration>
               <excludes>
                 <exclude>**/ActiveIf*</exclude>
+                <exclude>**/Configurer$Connection*</exclude>
               </excludes>
             </configuration>
           </execution>

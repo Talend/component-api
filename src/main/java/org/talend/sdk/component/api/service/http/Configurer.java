@@ -15,6 +15,9 @@
  */
 package org.talend.sdk.component.api.service.http;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Callback to configure the connection more deeply. Typically used to configure timeouts.
  */
@@ -30,6 +33,26 @@ public interface Configurer {
      * Represents actions doable on a connection.
      */
     interface Connection {
+
+        /**
+         * @return the method of current connection.
+         */
+        String getMethod();
+
+        /**
+         * @return the url of current connection.
+         */
+        String getUrl();
+
+        /**
+         * @return headers already set.
+         */
+        Map<String, List<String>> getHeaders();
+
+        /**
+         * @return payload of the request or null.
+         */
+        byte[] getPayload();
 
         /**
          * Adds a header to the request.
