@@ -28,7 +28,7 @@ public class OAuth1Test {
 
     @Test
     public void oauth1Hmac() {
-        final OAuth1 configurer = new OAuth1();
+        final OAuth1.Configurer configurer = new OAuth1.Configurer();
         final OAuth1.Configuration configuration = OAuth1.Configuration.builder().consumerKey("key").consumerSecret("secret")
                 .token("requestkey").tokenSecret("requestsecret").header("Auth").timestamp(1536181682L)
                 .nonce("bf5830e5b01de3a4090a32137d3e8937").build();

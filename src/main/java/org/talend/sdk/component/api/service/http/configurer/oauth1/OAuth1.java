@@ -18,6 +18,7 @@ package org.talend.sdk.component.api.service.http.configurer.oauth1;
 import static java.util.Locale.ROOT;
 import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
+import static lombok.AccessLevel.PRIVATE;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -39,26 +40,29 @@ import java.util.stream.Stream;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-import org.talend.sdk.component.api.service.http.Configurer;
-
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class OAuth1 implements Configurer {
+@NoArgsConstructor(access = PRIVATE)
+public final class OAuth1 {
 
-    @Override
-    public void configure(final Connection connection, final ConfigurerConfiguration configuration) {
-        final Configuration oauth1Config = Stream.of(configuration.configuration()).filter(Configuration.class::isInstance)
-                .findFirst().map(Configuration.class::cast)
-                .orElseThrow(() -> new IllegalArgumentException("No OAuth1.Configuration @ConfigurerOption set"));
+    public static class Configurer implements org.talend.sdk.component.api.service.http.Configurer {
 
-        final Map<String, String> values = buildParameters(connection.getMethod(), connection.getUrl(), connection.getPayload(),
-                oauth1Config);
+        @Override
+        public void configure(final Connection connection, final Configurer.ConfigurerConfiguration configuration) {
+            final Configuration oauth1Config = Stream.of(configuration.configuration()).filter(Configuration.class::isInstance)
+                    .findFirst().map(Configuration.class::cast)
+                    .orElseThrow(() -> new IllegalArgumentException("No OAuth1.Configuration @ConfigurerOption set"));
 
-        final String authorization = ofNullable(oauth1Config.getHeaderPrefix()).orElse("OAuth ")
-                + values.entrySet().stream().filter(e -> e.getKey().startsWith("oauth_"))
-                        .map(e -> e.getKey() + "=\"" + e.getValue() + "\"").collect(joining(", "));
-        connection.withHeader(ofNullable(oauth1Config.getHeader()).orElse("Authorization"), authorization);
+            final Map<String, String> values = new OAuth1().buildParameters(connection.getMethod(), connection.getUrl(),
+                    connection.getPayload(), oauth1Config);
+
+            final String authorization = ofNullable(oauth1Config.getHeaderPrefix()).orElse("OAuth ")
+                    + values.entrySet().stream().filter(e -> e.getKey().startsWith("oauth_"))
+                            .map(e -> e.getKey() + "=\"" + e.getValue() + "\"").collect(joining(", "));
+            connection.withHeader(ofNullable(oauth1Config.getHeader()).orElse("Authorization"), authorization);
+        }
     }
 
     public Map<String, String> buildParameters(final String method, final String url, final byte[] payload,
@@ -82,6 +86,9 @@ public class OAuth1 implements Configurer {
     }
 
     private String hash(final String algo, final byte[] payload) {
+        if ("plain".equalsIgnoreCase(algo)) {
+            return Base64.getEncoder().encodeToString(payload);
+        }
         try {
             final MessageDigest digest = MessageDigest.getInstance(algo);
             return Base64.getEncoder().encodeToString(digest.digest(payload));
