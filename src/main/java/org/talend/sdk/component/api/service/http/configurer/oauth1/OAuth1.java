@@ -22,10 +22,14 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.ServiceLoader;
 
+import org.talend.sdk.component.api.meta.Internal;
+import org.talend.sdk.component.api.meta.Partial;
+
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Partial("This doesn't fully implement oauth1 yet but is a good example of configurer entry point")
 @NoArgsConstructor(access = PRIVATE)
 public final class OAuth1 {
 
@@ -53,6 +57,7 @@ public final class OAuth1 {
     /**
      * This is the SPI to load the implementation, WARNING: this is an internal API.
      */
+    @Internal
     public interface OAuth1Provider {
 
         Map<String, String> buildParameters(String method, String url, byte[] payload, OAuth1.Configuration oauth1Config);
