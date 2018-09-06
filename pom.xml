@@ -253,12 +253,6 @@
             <goals>
               <goal>check</goal>
             </goals>
-            <configuration>
-              <excludes>
-                <exclude>**/ActiveIf*</exclude>
-                <exclude>**/Configurer$Connection*</exclude>
-              </excludes>
-            </configuration>
           </execution>
         </executions>
       </plugin>
