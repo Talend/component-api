@@ -253,6 +253,11 @@
             <goals>
               <goal>check</goal>
             </goals>
+            <configuration>
+              <excludes>
+                <exclude>**/Updatable*</exclude>
+              </excludes>
+            </configuration>
           </execution>
         </executions>
       </plugin>

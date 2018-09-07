@@ -40,6 +40,11 @@ public @interface Updatable {
     String value();
 
     /**
+     * @return property reference in the decorated object to append the button after.
+     */
+    String after() default "";
+
+    /**
      * This "list" will represent the parameter the caller will send to the action.
      *
      * Syntax is the following:
