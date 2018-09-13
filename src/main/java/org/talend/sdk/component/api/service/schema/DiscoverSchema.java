@@ -30,7 +30,7 @@ import org.talend.sdk.component.api.service.ActionType;
  * parameter will be an {@link org.talend.sdk.component.api.configuration.Option} named "dataset".
  */
 @Partial("See Schema description.")
-@ActionType(value = "schema", expectedReturnedType = Schema.class)
+@ActionType(value = "schema", expectedReturnedType = org.talend.sdk.component.api.record.Schema.class)
 @Target(METHOD)
 @Retention(RUNTIME)
 @Documentation("Mark an action as returning a discovered schema. Its parameter MUST be the type decorated with `@Structure`.")
