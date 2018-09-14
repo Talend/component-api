@@ -56,14 +56,6 @@ public class Schema implements org.talend.sdk.component.api.record.Schema {
         return null;
     }
 
-    @Override
-    public <T> T unwrap(final Class<T> type) {
-        if (type.isInstance(this)) {
-            return type.cast(this);
-        }
-        throw new IllegalArgumentException("Unsupported type: " + type);
-    }
-
     @Data
     @AllArgsConstructor
     @NoArgsConstructor

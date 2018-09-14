@@ -34,19 +34,6 @@ public interface Schema {
      */
     List<Entry> getEntries();
 
-    /**
-     * Allows to unwrap current schema as something else.
-     *
-     * IMPORTANT: this is not a conversion method, it just allows some advanced usages.
-     * If you have any doubt, stay away from it.
-     *
-     * @param type the expected type.
-     * @param <T> type of type.
-     * @return the unwrapped instance.
-     * @throws IllegalArgumentException if type is not supported.
-     */
-    <T> T unwrap(Class<T> type);
-
     enum Type {
         RECORD,
         ARRAY,

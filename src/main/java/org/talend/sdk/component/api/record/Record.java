@@ -36,19 +36,6 @@ public interface Record {
      */
     <T> T get(Class<T> expectedType, String name);
 
-    /**
-     * Allows to unwrap current record as something else.
-     *
-     * IMPORTANT: this is not a conversion method, it just allows some advanced usages.
-     * If you have any doubt, stay away from it.
-     *
-     * @param type the expected type.
-     * @param <T> type of type.
-     * @return the unwrapped instance.
-     * @throws IllegalArgumentException if type is not supported.
-     */
-    <T> T unwrap(Class<T> type);
-
     default String getString(final String name) {
         return get(String.class, name);
     }
