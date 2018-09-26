@@ -24,7 +24,6 @@ import java.lang.annotation.Target;
 
 import org.talend.sdk.component.api.configuration.action.meta.ActionRef;
 import org.talend.sdk.component.api.meta.Documentation;
-import org.talend.sdk.component.api.service.completion.DynamicValues;
 import org.talend.sdk.component.api.service.completion.Suggestions;
 
 @ActionRef(Suggestions.class)
