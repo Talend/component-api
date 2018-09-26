@@ -33,7 +33,10 @@ import org.talend.sdk.component.api.service.ActionType;
 @ActionType(value = "schema", expectedReturnedType = org.talend.sdk.component.api.record.Schema.class)
 @Target(METHOD)
 @Retention(RUNTIME)
-@Documentation("Mark an action as returning a discovered schema. Its parameter MUST be the type decorated with `@Structure`.")
+@Documentation("Mark an action as returning a discovered schema. Its parameter MUST be a dataset. "
+        + "Dataset is configuration type annotated with @DataSet. "
+        + "If component has multiple datasets, then dataset used as action parameter "
+        + "should have the same identifier as this @DiscoverSchema. ")
 public @interface DiscoverSchema {
 
     /**
