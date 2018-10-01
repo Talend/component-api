@@ -90,6 +90,7 @@ public @interface Icon {
         CLOUD_UPGRADE("cloud-upgrade"),
         CLUSTER("cluster"),
         COG("cog"),
+        COLUMN_CHOOSER("column-chooser"),
         COMPONENT_KIT_NEGATIVE("component-kit-negative"),
         COMPONENT_KIT_POSITIVE("component-kit-positive"),
         CONNECTIONS("connections"),
