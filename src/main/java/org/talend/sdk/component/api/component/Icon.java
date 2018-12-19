@@ -256,6 +256,7 @@ public @interface Icon {
         TRASH("trash"),
         TYPE_CONVERTER("type-converter"),
         UNDO("undo"),
+        UNION("union"),
         UNLOCKED("unlocked"),
         UPLOAD("upload"),
         USER_CIRCLE("user-circle"),
