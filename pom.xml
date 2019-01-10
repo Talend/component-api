@@ -255,8 +255,7 @@
             </goals>
             <configuration>
               <excludes>
-                <exclude>**/Updatable*</exclude>
-                <exclude>**/schema/Schema*</exclude>
+                <exclude>**/Resolver*</exclude>
               </excludes>
             </configuration>
           </execution>
