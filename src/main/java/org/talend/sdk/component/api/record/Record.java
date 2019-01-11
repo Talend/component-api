@@ -129,6 +129,7 @@ public interface Record {
      * 
      * @param type type of the elements of the collection.
      * @param name entry name.
+     * @param <T> type of the collection elements.
      * @return the value of the entry in this record.
      */
     default <T> Collection<T> getArray(final Class<T> type, final String name) {
@@ -150,6 +151,7 @@ public interface Record {
      * 
      * @param type type of the elements of the collection.
      * @param name entry name.
+     * @param <T> type of the collection elements.
      * @return the value of the entry in this record.
      */
     default <T> Optional<Collection<T>> getOptionalArray(final Class<T> type, final String name) {
