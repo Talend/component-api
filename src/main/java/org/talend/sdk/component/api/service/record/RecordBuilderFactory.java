@@ -24,6 +24,7 @@ import org.talend.sdk.component.api.record.Schema;
 public interface RecordBuilderFactory {
 
     /**
+     * @param schema the schema of the record to be built
      * @return a builder to create a new record and enforce the built record to respect
      * a static schema. If the entries don't match the schema the build call will fail.
      */
