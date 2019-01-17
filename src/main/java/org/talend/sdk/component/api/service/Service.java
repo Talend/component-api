@@ -22,6 +22,11 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+/**
+ * Mark a class as a service that can be injected into another service or a component via it constructor.
+ *
+ * <b>IMPORTANT</b> :: The class annotated with <code>@Service</code> need to be <code>public</code>.
+ */
 @Target({ TYPE, FIELD })
 @Retention(RUNTIME)
 public @interface Service {
