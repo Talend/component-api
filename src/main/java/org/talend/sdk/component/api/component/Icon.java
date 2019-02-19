@@ -241,6 +241,7 @@ public @interface Icon {
         SMILEY_SATISFIED("smiley-satisfied"),
         SMILEY_SLEEP("smiley-sleep"),
         SMILEY_UNHAPPY("smiley-unhappy"),
+        SORT("sort"),
         SORT_19("sort-19"),
         SORT_91("sort-91"),
         SORT_ASC("sort-asc"),
