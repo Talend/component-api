@@ -26,14 +26,14 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <talend-icon.version>2.6.0</talend-icon.version>
+    <talend-icon.version>3.1.0</talend-icon.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.16.20</version>
+      <version>1.18.4</version>
       <scope>provided</scope>
     </dependency>
 
