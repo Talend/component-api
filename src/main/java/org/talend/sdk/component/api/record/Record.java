@@ -16,6 +16,7 @@
 package org.talend.sdk.component.api.record;
 
 import static java.util.Optional.ofNullable;
+import static org.talend.sdk.component.api.record.Schema.Type.RECORD;
 
 import java.time.ZonedDateTime;
 import java.util.Collection;
@@ -301,6 +302,15 @@ public interface Record {
         Builder withBoolean(Schema.Entry entry, boolean value);
 
         Builder withRecord(Schema.Entry entry, Record value);
+
+        /**
+         * @since 1.1.6
+         *
+         * @param name entry name.
+         * @param value record value.
+         * @return this builder.
+         */
+        Builder withRecord(String name, Record value);
 
         <T> Builder withArray(Schema.Entry entry, Collection<T> values);
     }
