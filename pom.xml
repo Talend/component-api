@@ -255,6 +255,11 @@
             <goals>
               <goal>check</goal>
             </goals>
+            <configuration>
+              <excludes>
+                <exclude>**/Record*</exclude>
+              </excludes>
+            </configuration>
           </execution>
         </executions>
       </plugin>
