@@ -6,6 +6,8 @@ ifdef::env-github[]
 image:https://travis-ci.org/{gh-name}.svg?branch={gh-branch}["Build Status", link="https://travis-ci.org/{gh-name}"]
 endif::env-github[]
 
+IMPORTANT: this repository was integrated to link:https://github.com/Talend/component-runtime[Component Runtime] repository. It is no more updated.
+
 This module contains all the API component developers can rely on.
 
 It must be used with `provided` scope.
